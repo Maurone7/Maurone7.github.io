@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mauro Patimo</title>
+  <meta name="description" content="Mauro Patimo — Ph.D. student in Aerospace Engineering at Penn State, building a 6-DOF gravity offloading system for spacecraft testing.">
+  <meta property="og:title" content="Mauro Patimo — Aerospace Engineering">
+  <meta property="og:description" content="Ph.D. research on a 6-DOF gravity offloading system for satellite testing.">
+  <meta property="og:image" content="assets/img/bending-fea.jpg">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="#top" class="brand">M<span>P</span></a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      <nav class="nav-links">
+        <a href="#research">Research</a>
+        <a href="#grip">GRIP</a>
+        <a href="#theses">Theses</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-toggle" aria-label="Toggle dark mode">◐</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <canvas id="orbit" aria-hidden="true"></canvas>
+      <div class="wrap hero-inner">
+        <p class="eyebrow">Ph.D. Student · Aerospace Engineering · Penn State</p>
+        <h1>Mauro Patimo</h1>
+        <p class="lede">I build hardware that lets spacecraft feel like they're in orbit — without leaving the ground. My research focuses on a <strong>six-degree-of-freedom gravity offloading system</strong> for satellite and in-space assembly testing.</p>
+        <div class="cta">
+          <a class="btn primary" href="#research">See the system</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+        <ul class="hero-meta">
+          <li><span>Advisors</span>Dr. Puneet Singla · Dr. Roshan Eapen</li>
+          <li><span>Background</span>B.S. Astrophysics, CSUN</li>
+          <li><span>Based in</span>State College, PA</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research" class="section">
+      <div class="wrap">
+        <p class="eyebrow">Current research</p>
+        <h2>A 6-DOF Gravity Offloading System</h2>
+        <p class="section-lede">A 9&nbsp;m × 4&nbsp;m gantry that moves a payload through three translational and three rotational degrees of freedom, so satellites, docking mechanisms and in-space assembly hardware can be tested under orbit-like kinematics on Earth.</p>
+
+        <div class="stats">
+          <div class="stat"><b>9 × 4 m</b><span>workspace footprint</span></div>
+          <div class="stat"><b>6</b><span>degrees of freedom</span></div>
+          <div class="stat"><b>150 kg</b><span>movable point mass</span></div>
+          <div class="stat"><b>0.35 mm</b><span>mean tracking error, circular orbit</span></div>
+        </div>
+
+        <div class="media-grid">
+          <figure class="media-card">
+            <div class="media-frame" id="video-frame">
+              <video id="system-video" controls playsinline preload="metadata">
+                <source src="assets/video/system.mp4" type="video/mp4">
+              </video>
+              <div class="media-placeholder" hidden>
+                <span class="ph-icon">▶</span>
+                <p>System video coming soon</p>
+              </div>
+            </div>
+            <figcaption>The system in motion.</figcaption>
+          </figure>
+          <figure class="media-card">
+            <div class="media-frame" id="model-frame">
+              <model-viewer id="system-model" src="assets/models/system.glb" alt="3D model of the gravity offloading system" camera-controls auto-rotate shadow-intensity="0.6" exposure="1" touch-action="pan-y"></model-viewer>
+              <div class="media-placeholder" hidden>
+                <span class="ph-icon">⬡</span>
+                <p>Interactive 3D model coming soon</p>
+              </div>
+            </div>
+            <figcaption>Interactive CAD model — drag to rotate, scroll to zoom.</figcaption>
+          </figure>
+        </div>
+
+        <!-- Subsystems -->
+        <h3 class="sub">Subsystems</h3>
+        <div class="cards">
+          <article class="card">
+            <img class="contain" src="assets/img/frame-drawing.jpg" alt="Frame drawing with dimensions 9120 by 4247 by 3022 mm" loading="lazy">
+            <div class="card-body">
+              <p class="tag">Structure</p>
+              <h4>Frame</h4>
+              <p>80×80 mm aluminium T-slot legs bolted to the floor carry two 9 m sides of 160×80 mm profile, topped with extra-wide ball-bearing rails that guide the gantry and stiffen the frame. Gussets and diagonal braces support the 6 m spans.</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="assets/img/bending-fea.jpg" alt="Finite-element displacement plots of the 6 m beam under 2000 N and 4000 N" loading="lazy">
+            <div class="card-body">
+              <p class="tag">Analysis</p>
+              <h4>Bending FEA</h4>
+              <p>Fusion simulations of the 6 m beams: 4.27 mm maximum deflection at 2000 N and 7.24 mm at 4000 N, with von Mises stress of 111 and 192 MPa.</p>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-body">
+              <p class="tag">X-axis · 8 m travel</p>
+              <h4>Dual rack-and-pinion gantry</h4>
+              <p>Both ends of the cross beam are driven by their own Teknic NEMA 34 servo, 50:1 gearbox and DIN6 helical rack, so the beam doesn't skew and bind when it accelerates. Motor torque is capped at 54% to protect the gearbox if the axis jams.</p>
+              <dl class="spec">
+                <div><dt>Max speed</dt><dd>0.20 m/s</dd></div>
+                <div><dt>Max accel.</dt><dd>3.93 m/s² (0.40 g)</dd></div>
+                <div><dt>Inertia ratio</dt><dd>0.22 : 1</dd></div>
+              </dl>
+            </div>
+          </article>
+          <article class="card">
+            <img src="assets/img/festo-y-axis.jpg" alt="Festo ELGD linear motion system" loading="lazy">
+            <div class="card-body">
+              <p class="tag">Y-axis · 3.5 m stroke</p>
+              <h4>Festo belt-driven linear axis</h4>
+              <p>A Festo ELGD-TB-KF-120 axis, driven by a Teknic servo through a 32:1 gearbox. Torque is capped at 60% so the drive stays under the axis's 36.2 Nm feed limit.</p>
+              <dl class="spec">
+                <div><dt>Max speed</dt><dd>0.547 m/s</dd></div>
+                <div><dt>Max accel.</dt><dd>4.52 m/s²</dd></div>
+                <div><dt>Backlash</dt><dd>±0.05 mm</dd></div>
+              </dl>
+            </div>
+          </article>
+          <article class="card">
+            <img src="assets/img/z-axis-tower.jpg" alt="Telescopic Z-axis tower render" loading="lazy">
+            <div class="card-body">
+              <p class="tag">Z-axis · 1 m stroke</p>
+              <h4>Telescopic tower</h4>
+              <p>An Isotech CA-X15 telescopic tower that extends from 800 mm to 1800 mm while keeping vertical clearance. It is rated to 2000 N and driven by a Teknic servo through a right-angle reducer.</p>
+              <dl class="spec">
+                <div><dt>Peak torque</dt><dd>9.8 Nm</dd></div>
+                <div><dt>Resolution</dt><dd>0.012°</dd></div>
+                <div><dt>Rated load</dt><dd>2000 N</dd></div>
+              </dl>
+            </div>
+          </article>
+          <article class="card">
+            <img class="contain" src="assets/img/accel-vs-mass.jpg" alt="Plot of maximum acceleration versus load mass" loading="lazy">
+            <div class="card-body">
+              <p class="tag">Sizing</p>
+              <h4>Performance envelope</h4>
+              <p>Each axis is sized against motor peak torque, reflected inertia, gearbox E-stop ratings, rack force and bearing moments. Available acceleration drops steeply as payload mass grows.</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Scaling -->
+        <h3 class="sub">Scaling orbits down to the lab</h3>
+        <div class="split">
+          <div>
+            <p>No single configuration on the ground preserves orbital period, angular velocity, gravity gradient, Coriolis effects and structural loads at once. Matching GEO at the system's 1.75 m radius, for example, would need an orbital period of about 0.7 µs.</p>
+            <p>The system is therefore treated as a <strong>hybrid simulator</strong>, and the scaling law is chosen to fit the experiment:</p>
+            <ul class="checklist">
+              <li><b>Angular-velocity scaling</b> — GEO, MEO and LEO angular rates need only 3.8–61 RPM at the motor, all well within limits.</li>
+              <li><b>Reduced-radius acceleration</b> — a 0.18 m synthetic orbit reproduces GEO centripetal acceleration.</li>
+              <li><b>Time-scaled trajectories</b> — the sequence and relative timing of control events is preserved.</li>
+              <li><b>Active emulation</b> — closed-loop centripetal, Coriolis and gravity-gradient acceleration fields.</li>
+            </ul>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <caption>Required speeds at r<sub>s</sub> = 1.75 m</caption>
+              <thead><tr><th>Orbit</th><th>Radius (km)</th><th>Accel.<br>match (m/s)</th><th>ω match<br>(mm/s)</th></tr></thead>
+              <tbody>
+                <tr><td>GEO</td><td>42,164</td><td>0.626</td><td>0.128</td></tr>
+                <tr><td>MEO</td><td>20,200</td><td>1.14</td><td>0.336</td></tr>
+                <tr><td>LEO</td><td>6,678</td><td>3.99</td><td>2.04</td></tr>
+              </tbody>
+            </table>
+            <p class="note">X-axis limit: 0.20 m/s. Angular-velocity matching is feasible for all three orbits.</p>
+          </div>
+        </div>
+
+        <!-- Experiment -->
+        <h3 class="sub">First experiment: a circular orbit in X–Y</h3>
+        <div class="split">
+          <figure class="plot"><img src="assets/img/trajectory.jpg" alt="Commanded versus measured circular trajectory, 10 cm radius" loading="lazy"><figcaption>Commanded vs. measured trajectory for a 10 cm circular orbit.</figcaption></figure>
+          <div>
+            <p>The circle is approximated by a 52-sided polygon and run with velocity commands from a Raspberry Pi 5. More sides follow the circle more closely, but the extra commands add communication load that can keep the motors from reaching the commanded velocity.</p>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Radial error</th><th>Measured</th><th>Ideal (polygon)</th></tr></thead>
+                <tbody>
+                  <tr><td>Mean</td><td>0.352 mm</td><td>0.122 mm</td></tr>
+                  <tr><td>Median</td><td>0.349 mm</td><td>0.137 mm</td></tr>
+                  <tr><td>Max</td><td>0.853 mm</td><td>0.182 mm</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Most of the extra error comes from communication delay: the Pi can't run its command threads at perfectly regular intervals. Intrinsic motor error is only about 1 µm.</p>
+          </div>
+        </div>
+        <div class="plot-row">
+          <figure class="plot"><img src="assets/img/radial-error-ideal.jpg" alt="Ideal radial error for polygonal approximation" loading="lazy"><figcaption>Ideal radial error from the polygon approximation.</figcaption></figure>
+          <figure class="plot"><img src="assets/img/radial-error-measured.jpg" alt="Radial error reported by the motor" loading="lazy"><figcaption>Radial error reported by the motor.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRIP (MS) -->
+    <section id="grip" class="section alt">
+      <div class="wrap">
+        <p class="eyebrow">Where it started · M.S. research</p>
+        <h2>GRIP: a Modular Gravity Off-Loading Testbed</h2>
+        <p class="section-lede">The <strong>G</strong>ravity-offloaded <strong>R</strong>obot<strong>I</strong>cs and <strong>P</strong>roximity operations testbed is a 5-DOF prototype for testing proximity robotics, such as servicing, assembly and docking, and for reduced-gravity rover terrain tests. Its track-based gantry lets several payloads ride the same rails at once and interact with each other with sub-millimeter precision.</p>
+
+        <div class="split grip-intro">
+          <figure class="plot"><img src="assets/img/grip-hardware.jpg" alt="Photo of the GRIP X-axis carriage with servo motor and 3D-printed holder" loading="lazy"><figcaption>X-axis carriage: Teknic servo on a 3D-printed holder driving a printed gear rack in an 8020 rail.</figcaption></figure>
+          <div>
+            <ul class="checklist">
+              <li><b>Cartesian gantry</b> with 2 translational DOF, built from 8020 aluminium and a gear-based X–Y drive.</li>
+              <li><b>In-house 3-axis gimbal</b> that holds objects of arbitrary shape, cylinders especially, and rotates them about an arbitrary axis.</li>
+              <li><b>Modular by design:</b> each subsystem is itself an off-loader. The Y-axis was later extended to 5 ft by swapping in longer beams, with no other parts reworked.</li>
+              <li><b>Raspberry Pi 5 control</b> of Teknic ClearPath servos with encoder feedback, logging and multi-threaded command streaming.</li>
+              <li><b>Mostly 3D-printed</b> motor holders, racks, gears and gimbal rings, printed on a Prusa XL and checked with FEM.</li>
+            </ul>
+            <dl class="spec wide">
+              <div><dt>Positioning resolution</dt><dd>0.0245 mm</dd></div>
+              <div><dt>Circular-orbit mean error</dt><dd>0.66 mm</dd></div>
+              <div><dt>Sinusoidal fit R² (X / Y)</dt><dd>0.9999 / 0.9998</dd></div>
+            </dl>
+          </div>
+        </div>
+
+        <div class="gallery">
+          <figure><img src="assets/img/grip-gimbal-cad.jpg" alt="CAD render of the gimbal rotation system" loading="lazy"><figcaption>Gimbal rotation stage (CAD)</figcaption></figure>
+          <figure><img src="assets/img/grip-z-rotation.jpg" alt="CAD of the Z-axis rotation platform" loading="lazy"><figcaption>Z-axis rotation platform</figcaption></figure>
+          <figure><img src="assets/img/grip-printed-ring.jpg" alt="3D-printed gimbal ring in PrusaSlicer" loading="lazy"><figcaption>Printed gimbal ring gear</figcaption></figure>
+          <figure><img src="assets/img/grip-printed-rack.jpg" alt="3D-printed gear rack segment" loading="lazy"><figcaption>Dovetailed gear-rack segment</figcaption></figure>
+        </div>
+
+        <h3 class="sub">Demonstrated trajectories</h3>
+        <div class="gallery traj">
+          <figure><img src="assets/img/grip-circle.jpg" alt="Measured circular orbit" loading="lazy"><figcaption><b>Keplerian circular orbit</b>: 8 cm radius</figcaption></figure>
+          <figure><img src="assets/img/grip-ellipse.jpg" alt="Measured elliptical orbit" loading="lazy"><figcaption><b>Elliptical orbit</b>: measured vs. ideal ellipse</figcaption></figure>
+          <figure><img src="assets/img/grip-lyapunov.jpg" alt="Measured Lyapunov orbit around L1" loading="lazy"><figcaption><b>Lyapunov orbit about L1</b>: cislunar multi-body motion</figcaption></figure>
+          <figure><img src="assets/img/grip-docking.jpg" alt="Undocking and docking maneuver trajectory" loading="lazy"><figcaption><b>Undocking–docking</b>: departure, orbit and return</figcaption></figure>
+        </div>
+        <figure class="plot wide-photo"><img src="assets/img/grip-gimbal-photo.jpg" alt="Camera view of the gimbal-held object being tracked during an orbit" loading="lazy"><figcaption>Camera tracking of the suspended object during a circular orbit.</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- THESES -->
+    <section id="theses" class="section alt">
+      <div class="wrap">
+        <p class="eyebrow">Writing</p>
+        <h2>Theses</h2>
+        <div class="thesis-list">
+          <article class="thesis">
+            <div class="thesis-status progress">In progress</div>
+            <h3>A 6DOF Gravity Offloading System</h3>
+            <p class="thesis-meta">Ph.D. dissertation · Aerospace Engineering, The Pennsylvania State University · Advisor: Dr. Puneet Singla · Expected May 2028</p>
+            <p>Covers the design of the frame and the three translation axes plus a rotation stage, the scaling of LEO, MEO and GEO conditions to a laboratory apparatus, and experimental validation of orbit-tracking performance.</p>
+            <ol class="toc">
+              <li>Design: frame, bending, X/Y/Z translation, rotation</li>
+              <li>Scaling of orbital conditions</li>
+              <li>Experiments</li>
+            </ol>
+          </article>
+          <article class="thesis">
+            <div class="thesis-status done">Completed 2025</div>
+            <h3>A Modular Gravity Off-Loading System</h3>
+            <p class="thesis-meta">M.S. thesis · Aerospace Engineering, The Pennsylvania State University · Advisor: Dr. Puneet Singla · Committee: Dr. Roshan Eapen, Dr. George Lesieutre</p>
+            <p>Covers the design, construction and validation of the GRIP testbed: a 5-DOF gantry and gimbal that reproduces Keplerian orbits, cislunar Lyapunov orbits and docking maneuvers for hardware-in-the-loop testing of space robotics.</p>
+            <a class="text-link" href="#grip">Read the project summary →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <div class="wrap">
+        <p class="eyebrow">Path so far</p>
+        <h2>Experience</h2>
+        <ol class="timeline">
+          <li>
+            <time>May 2024 – Present</time>
+            <h3>Vehicle Dynamics &amp; Controls Researcher</h3>
+            <p class="org">The Pennsylvania State University · State College, PA</p>
+            <p>Designing and building a 6-DOF gravity offloading system for satellite testing with Dr. Puneet Singla and Dr. Roshan Eapen.</p>
+          </li>
+          <li>
+            <time>Aug 2023 – May 2024</time>
+            <h3>Teaching Assistant</h3>
+            <p class="org">The Pennsylvania State University · State College, PA</p>
+            <p>Held office hours, graded exams and wrote solution keys.</p>
+          </li>
+          <li>
+            <time>Jun 2022 – Aug 2022</time>
+            <h3>Plasma / Laser Researcher</h3>
+            <p class="org">Princeton University · Princeton, NJ</p>
+            <p>Developed 3-D imaging with a femtosecond laser and ultra-high-speed liquid varifocal lenses in Dr. Craig Arnold's optics lab.</p>
+          </li>
+          <li>
+            <time>Sep 2021 – Jun 2023</time>
+            <h3>Astrophysics Researcher</h3>
+            <p class="org">California State University, Northridge</p>
+            <p>Analyzed protoplanetary disk data with Dr. Luca Ricci.</p>
+          </li>
+          <li>
+            <time>Jan 2022 – Jul 2022</time>
+            <h3>Biophysics Researcher</h3>
+            <p class="org">California State University, Northridge</p>
+            <p>Wrote image- and data-analysis scripts for Dr. Taheri in the Physics Department.</p>
+          </li>
+          <li>
+            <time>Jan 2020 – Jun 2021</time>
+            <h3>Astrophysics Researcher</h3>
+            <p class="org">Los Angeles Pierce College · Woodland Hills, CA</p>
+            <p>Researched neutron star rotation-speed prediction with Dr. Dale Fields.</p>
+          </li>
+          <li>
+            <time>Sep 2017 – May 2023</time>
+            <h3>Academic / Private Tutor &amp; TA</h3>
+            <p class="org">California State University, Northridge</p>
+            <p>Tutored 400+ students; more than 90% of them earned an A.</p>
+          </li>
+          <li>
+            <time>Jan 2020 – Present</time>
+            <h3>Science Outreach</h3>
+            <p class="org">Independent · YouTube</p>
+            <p>Created and run a <a href="https://www.youtube.com/channel/UCKaDFD_Q2KRrKUvGt-rLfMA" target="_blank" rel="noopener">YouTube channel</a> that explains physics and programming concepts to students and the public.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- EDUCATION + AWARDS -->
+    <section id="education" class="section alt">
+      <div class="wrap two-col">
+        <div>
+          <p class="eyebrow">Degrees</p>
+          <h2>Education</h2>
+          <ul class="edu">
+            <li><b>Ph.D., Aerospace Engineering</b><span>The Pennsylvania State University · expected May 2028</span><span class="muted">Dr. Puneet Singla's research group</span></li>
+            <li><b>M.S., Aerospace Engineering</b><span>The Pennsylvania State University · 2025</span><span class="muted">Dr. Puneet Singla's research group</span></li>
+            <li><b>B.S., Astrophysics</b><span>California State University, Northridge · May 2023</span><span class="muted">Dr. Luca Ricci's research group</span></li>
+          </ul>
+        </div>
+        <div>
+          <p class="eyebrow">Recognition</p>
+          <h2>Awards</h2>
+          <ul class="edu">
+            <li><b>Sigma Pi Sigma</b><span>Member, Physics Honor Society</span></li>
+            <li><b>6th place — Kangaroo della Matematica</b><span>National math competition, Italy</span></li>
+            <li><b>13th place — Olimpiadi dell'Astronomia</b><span>National astronomy competition, Italy</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+      <div class="wrap">
+        <h2>Get in touch</h2>
+        <p class="section-lede">Open to collaborations on spacecraft testing, hardware-in-the-loop simulation and guidance &amp; control.</p>
+        <div class="contact-links">
+          <a href="mailto:Mauro.patimo@gmail.com">✉ Mauro.patimo@gmail.com</a>
+          <a href="https://github.com/Maurone7" target="_blank" rel="noopener">⌥ github.com/Maurone7</a>
+          <a href="https://www.youtube.com/channel/UCKaDFD_Q2KRrKUvGt-rLfMA" target="_blank" rel="noopener">▶ YouTube</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">© <span id="year"></span> Mauro Patimo</div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
