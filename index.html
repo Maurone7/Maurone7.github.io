@@ -37,7 +37,7 @@
     <section class="hero">
       <canvas id="orbit" aria-hidden="true"></canvas>
       <div class="wrap hero-inner">
-        <p class="eyebrow">Ph.D. Student · Aerospace Engineering · Penn State</p>
+        <p class="eyebrow">Phd Student · Aerospace Engineering · Penn State</p>
         <h1>Mauro Patimo</h1>
         <p class="lede">My research focuses on the design and validation of a <strong>six-degree-of-freedom gravity offloading system</strong> for ground-based testing of spacecraft, proximity operations, and in-space servicing, assembly, and manufacturing (ISAM).</p>
         <div class="cta">
@@ -150,11 +150,21 @@
             </div>
           </article>
           <article class="card">
-            <img class="contain" src="assets/img/accel-vs-mass.jpg" alt="Plot of maximum acceleration versus load mass" loading="lazy">
+            <div class="chart-wrap">
+              <p class="chart-title">Maximum acceleration (m/s²) vs. load mass</p>
+              <div class="chart" id="accel-chart" role="img" aria-label="Line chart: maximum acceleration decreases from about 95 m/s² at 10 kg to about 4.8 m/s² at 200 kg, inversely proportional to load mass."></div>
+            </div>
             <div class="card-body">
               <p class="tag">Sizing</p>
               <h4>Performance Envelope</h4>
               <p>Each axis is sized with respect to motor peak torque, reflected inertia, gearbox emergency-stop rating, rack force, and bearing moment limits. The achievable acceleration decreases significantly with increasing payload mass.</p>
+              <details class="chart-table">
+                <summary>View data</summary>
+                <table>
+                  <thead><tr><th>Load mass (kg)</th><th>Max. acceleration (m/s²)</th></tr></thead>
+                  <tbody id="accel-table"></tbody>
+                </table>
+              </details>
             </div>
           </article>
         </div>
