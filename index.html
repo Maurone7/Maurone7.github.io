@@ -7,15 +7,41 @@
   <meta name="description" content="Mauro Patimo, Ph.D. student in Aerospace Engineering at The Pennsylvania State University. Research on gravity offloading systems for ground-based spacecraft testing.">
   <meta property="og:title" content="Mauro Patimo — Aerospace Engineering">
   <meta property="og:description" content="Ph.D. research on a 6-DOF gravity offloading system for satellite testing.">
-  <meta property="og:image" content="assets/img/bending-fea.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://maurone7.github.io/">
+  <meta property="og:image" content="https://maurone7.github.io/assets/img/grip-gimbal-photo.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://maurone7.github.io/">
+  <meta name="theme-color" content="#f7f8fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b0f17" media="(prefers-color-scheme: dark)">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mauro Patimo",
+    "url": "https://maurone7.github.io/",
+    "jobTitle": "Ph.D. Student, Aerospace Engineering",
+    "affiliation": { "@type": "CollegeOrUniversity", "name": "The Pennsylvania State University" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "The Pennsylvania State University" },
+      { "@type": "CollegeOrUniversity", "name": "California State University, Northridge" }
+    ],
+    "knowsAbout": ["Gravity offloading", "Spacecraft testing", "Hardware-in-the-loop simulation", "Guidance, navigation, and control"],
+    "sameAs": [
+      "https://www.linkedin.com/in/mauro-patimo/",
+      "https://github.com/Maurone7",
+      "https://www.youtube.com/channel/UCKaDFD_Q2KRrKUvGt-rLfMA"
+    ]
+  }
+  </script>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script type="module" src="https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#research">Skip to content</a>
   <header class="nav">
     <div class="wrap nav-inner">
       <a href="#top" class="brand">M<span>P</span></a>
@@ -27,7 +53,7 @@
         <a href="#experience">Experience</a>
         <a href="#education">Education</a>
         <a href="#contact">Contact</a>
-        <button class="theme-toggle" aria-label="Toggle dark mode">◐</button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">◐</button>
       </nav>
     </div>
   </header>
@@ -67,10 +93,10 @@
           <div class="stat"><b>0.35 mm</b><span>mean radial error, circular trajectory</span></div>
         </div>
 
-        <div class="media-grid">
-          <figure class="media-card">
+        <div class="media-grid single">
+          <figure class="media-card" id="video-card" hidden>
             <div class="media-frame" id="video-frame">
-              <video id="system-video" controls playsinline preload="metadata">
+              <video id="system-video" controls playsinline preload="none">
                 <source src="assets/video/system.mp4" type="video/mp4">
               </video>
               <div class="media-placeholder" hidden>
@@ -96,7 +122,7 @@
         <h3 class="sub">Subsystems</h3>
         <div class="cards">
           <article class="card">
-            <img class="contain" src="assets/img/frame-drawing.jpg" alt="Frame drawing with dimensions 9120 by 4247 by 3022 mm" loading="lazy">
+            <img class="contain" src="assets/img/frame-drawing.jpg" alt="Frame drawing with dimensions 9120 by 4247 by 3022 mm" loading="lazy" width="906" height="844" decoding="async">
             <div class="card-body">
               <p class="tag">Structure</p>
               <h4>Frame</h4>
@@ -104,7 +130,7 @@
             </div>
           </article>
           <article class="card">
-            <img src="assets/img/bending-fea.jpg" alt="Finite-element displacement plots of the 6 m beam under 2000 N and 4000 N" loading="lazy">
+            <img src="assets/img/bending-fea.jpg" alt="Finite-element displacement plots of the 6 m beam under 2000 N and 4000 N" loading="lazy" width="1600" height="868" decoding="async" srcset="assets/img/bending-fea-800.jpg 800w, assets/img/bending-fea.jpg 1600w" sizes="(max-width: 860px) 100vw, 50vw">
             <div class="card-body">
               <p class="tag">Analysis</p>
               <h4>Structural Analysis</h4>
@@ -124,7 +150,7 @@
             </div>
           </article>
           <article class="card">
-            <img src="assets/img/festo-y-axis.jpg" alt="Festo ELGD linear motion system" loading="lazy">
+            <img src="assets/img/festo-y-axis.jpg" alt="Festo ELGD linear motion system" loading="lazy" width="1600" height="965" decoding="async" srcset="assets/img/festo-y-axis-800.jpg 800w, assets/img/festo-y-axis.jpg 1600w" sizes="(max-width: 860px) 100vw, 50vw">
             <div class="card-body">
               <p class="tag">Y-axis · 3.5 m stroke</p>
               <h4>Belt-Driven Linear Axis</h4>
@@ -137,7 +163,7 @@
             </div>
           </article>
           <article class="card">
-            <img src="assets/img/z-axis-tower.jpg" alt="Telescopic Z-axis tower render" loading="lazy">
+            <img src="assets/img/z-axis-tower.jpg" alt="Telescopic Z-axis tower render" loading="lazy" width="1600" height="965" decoding="async" srcset="assets/img/z-axis-tower-800.jpg 800w, assets/img/z-axis-tower.jpg 1600w" sizes="(max-width: 860px) 100vw, 50vw">
             <div class="card-body">
               <p class="tag">Z-axis · 1 m stroke</p>
               <h4>Telescopic Column</h4>
@@ -199,7 +225,7 @@
         <!-- Experiment -->
         <h3 class="sub">Experimental Validation: Circular Trajectory</h3>
         <div class="split">
-          <figure class="plot"><img src="assets/img/trajectory.jpg" alt="Commanded versus measured circular trajectory, 10 cm radius" loading="lazy"><figcaption>Commanded vs. measured trajectory for a 10 cm circular orbit.</figcaption></figure>
+          <figure class="plot"><img src="assets/img/trajectory.jpg" alt="Commanded versus measured circular trajectory, 10 cm radius" loading="lazy" width="1281" height="1200" decoding="async" srcset="assets/img/trajectory-800.jpg 800w, assets/img/trajectory.jpg 1281w" sizes="(max-width: 860px) 100vw, 50vw"><figcaption>Commanded vs. measured trajectory for a 10 cm circular orbit.</figcaption></figure>
           <div>
             <p>A circular trajectory in the X–Y plane was approximated by a 52-sided polygon and executed through velocity commands issued by a Raspberry Pi 5. Increasing the number of sides reduces the geometric approximation error but increases communication overhead, which can prevent the motors from reaching the commanded velocities.</p>
             <div class="table-wrap">
@@ -216,8 +242,8 @@
           </div>
         </div>
         <div class="plot-row">
-          <figure class="plot"><img src="assets/img/radial-error-ideal.jpg" alt="Ideal radial error for polygonal approximation" loading="lazy"><figcaption>Theoretical radial error of the polygonal approximation.</figcaption></figure>
-          <figure class="plot"><img src="assets/img/radial-error-measured.jpg" alt="Radial error reported by the motor" loading="lazy"><figcaption>Position error reported by the motor.</figcaption></figure>
+          <figure class="plot"><img src="assets/img/radial-error-ideal.jpg" alt="Ideal radial error for polygonal approximation" loading="lazy" width="1000" height="600" decoding="async"><figcaption>Theoretical radial error of the polygonal approximation.</figcaption></figure>
+          <figure class="plot"><img src="assets/img/radial-error-measured.jpg" alt="Radial error reported by the motor" loading="lazy" width="1000" height="600" decoding="async"><figcaption>Position error reported by the motor.</figcaption></figure>
         </div>
       </div>
     </section>
@@ -230,7 +256,7 @@
         <p class="section-lede">The <strong>G</strong>ravity-offloaded <strong>R</strong>obot<strong>I</strong>cs and <strong>P</strong>roximity operations testbed is a five-degree-of-freedom facility for testing proximity robotics, including servicing, assembly, and docking, as well as reduced-gravity terrain testing of planetary rovers. Its track-based translational system allows multiple payloads to be installed simultaneously and to interact with sub-millimeter precision.</p>
 
         <div class="split grip-intro">
-          <figure class="plot"><img src="assets/img/grip-hardware.jpg" alt="Photo of the GRIP X-axis carriage with servo motor and 3D-printed holder" loading="lazy"><figcaption>X-axis carriage, with a Teknic servo motor on a 3D-printed mount driving a gear rack integrated into the 8020 rail.</figcaption></figure>
+          <figure class="plot"><img src="assets/img/grip-hardware.jpg" alt="Photo of the GRIP X-axis carriage with servo motor and 3D-printed holder" loading="lazy" width="1400" height="1050" decoding="async" srcset="assets/img/grip-hardware-800.jpg 800w, assets/img/grip-hardware.jpg 1400w" sizes="(max-width: 860px) 100vw, 50vw"><figcaption>X-axis carriage, with a Teknic servo motor on a 3D-printed mount driving a gear rack integrated into the 8020 rail.</figcaption></figure>
           <div>
             <ul class="checklist">
               <li><b>Cartesian gantry:</b> two translational degrees of freedom, constructed from 8020 aluminum profiles with a gear-driven X–Y mechanism.</li>
@@ -248,25 +274,25 @@
         </div>
 
         <div class="gallery">
-          <figure><img src="assets/img/grip-gimbal-cad.jpg" alt="CAD render of the gimbal rotation system" loading="lazy"><figcaption>Gimbal rotation assembly (CAD)</figcaption></figure>
-          <figure><img src="assets/img/grip-z-rotation.jpg" alt="CAD of the Z-axis rotation platform" loading="lazy"><figcaption>Z-axis rotation platform (CAD)</figcaption></figure>
-          <figure><img src="assets/img/grip-printed-ring.jpg" alt="3D-printed gimbal ring in PrusaSlicer" loading="lazy"><figcaption>Gimbal ring gear (slicer preview)</figcaption></figure>
-          <figure><img src="assets/img/grip-dovetail.jpg" alt="Close-up of the dovetail joint at the end of a 3D-printed gear rack segment" loading="lazy"><figcaption>Dovetail joint between gear rack segments</figcaption></figure>
+          <figure><img src="assets/img/grip-gimbal-cad.jpg" alt="CAD render of the gimbal rotation system" loading="lazy" width="1330" height="1470" decoding="async" srcset="assets/img/grip-gimbal-cad-800.jpg 800w, assets/img/grip-gimbal-cad.jpg 1330w" sizes="(max-width: 860px) 100vw, 50vw"><figcaption>Gimbal rotation assembly (CAD)</figcaption></figure>
+          <figure><img src="assets/img/grip-z-rotation.jpg" alt="CAD of the Z-axis rotation platform" loading="lazy" width="1500" height="1190" decoding="async" srcset="assets/img/grip-z-rotation-800.jpg 800w, assets/img/grip-z-rotation.jpg 1500w" sizes="(max-width: 860px) 100vw, 50vw"><figcaption>Z-axis rotation platform (CAD)</figcaption></figure>
+          <figure><img src="assets/img/grip-printed-ring.jpg" alt="3D-printed gimbal ring in PrusaSlicer" loading="lazy" width="1006" height="832" decoding="async" srcset="assets/img/grip-printed-ring-800.jpg 800w, assets/img/grip-printed-ring.jpg 1006w" sizes="(max-width: 860px) 100vw, 50vw"><figcaption>Gimbal ring gear (slicer preview)</figcaption></figure>
+          <figure><img src="assets/img/grip-dovetail.jpg" alt="Close-up of the dovetail joint at the end of a 3D-printed gear rack segment" loading="lazy" width="990" height="840" decoding="async"><figcaption>Dovetail joint between gear rack segments</figcaption></figure>
         </div>
 
         <h3 class="sub">Experimental Results</h3>
         <div class="gallery traj">
-          <figure><img src="assets/img/grip-circle.jpg" alt="Measured circular orbit" loading="lazy"><figcaption><b>Circular Keplerian orbit</b> (8 cm radius)</figcaption></figure>
-          <figure><img src="assets/img/grip-ellipse.jpg" alt="Measured elliptical orbit" loading="lazy"><figcaption><b>Elliptical orbit</b>, measured and reference trajectories</figcaption></figure>
-          <figure><img src="assets/img/grip-lyapunov.jpg" alt="Measured Lyapunov orbit around L1" loading="lazy"><figcaption><b>Lyapunov orbit about L1</b> in the cislunar regime</figcaption></figure>
-          <figure><img src="assets/img/grip-docking.jpg" alt="Undocking and docking maneuver trajectory" loading="lazy"><figcaption><b>Undocking and docking maneuver</b></figcaption></figure>
+          <figure><img src="assets/img/grip-circle.jpg" alt="Measured circular orbit" loading="lazy" width="324" height="328" decoding="async"><figcaption><b>Circular Keplerian orbit</b> (8 cm radius)</figcaption></figure>
+          <figure><img src="assets/img/grip-ellipse.jpg" alt="Measured elliptical orbit" loading="lazy" width="429" height="317" decoding="async"><figcaption><b>Elliptical orbit</b>, measured and reference trajectories</figcaption></figure>
+          <figure><img src="assets/img/grip-lyapunov.jpg" alt="Measured Lyapunov orbit around L1" loading="lazy" width="1200" height="678" decoding="async" srcset="assets/img/grip-lyapunov-800.jpg 800w, assets/img/grip-lyapunov.jpg 1200w" sizes="(max-width: 860px) 100vw, 50vw"><figcaption><b>Lyapunov orbit about L1</b> in the cislunar regime</figcaption></figure>
+          <figure><img src="assets/img/grip-docking.jpg" alt="Undocking and docking maneuver trajectory" loading="lazy" width="700" height="455" decoding="async"><figcaption><b>Undocking and docking maneuver</b></figcaption></figure>
         </div>
-        <figure class="plot wide-photo"><img src="assets/img/grip-gimbal-photo.jpg" alt="Camera view of the gimbal-held object being tracked during an orbit" loading="lazy"><figcaption>Visual tracking of the suspended payload during a circular-orbit experiment.</figcaption></figure>
+        <figure class="plot wide-photo"><img src="assets/img/grip-gimbal-photo.jpg" alt="Camera view of the gimbal-held object being tracked during an orbit" loading="lazy" width="1400" height="788" decoding="async" srcset="assets/img/grip-gimbal-photo-800.jpg 800w, assets/img/grip-gimbal-photo.jpg 1400w" sizes="(max-width: 860px) 100vw, 50vw"><figcaption>Visual tracking of the suspended payload during a circular-orbit experiment.</figcaption></figure>
       </div>
     </section>
 
     <!-- THESES -->
-    <section id="theses" class="section alt">
+    <section id="theses" class="section">
       <div class="wrap">
         <p class="eyebrow">Publications</p>
         <h2>Theses</h2>
@@ -294,7 +320,7 @@
     </section>
 
     <!-- EXPERIENCE -->
-    <section id="experience" class="section">
+    <section id="experience" class="section alt">
       <div class="wrap">
         <p class="eyebrow">Professional history</p>
         <h2>Experience</h2>
@@ -318,16 +344,16 @@
             <p>Contributed to the development of three-dimensional imaging techniques using a femtosecond laser and ultra-high-speed liquid varifocal lenses, under the supervision of Dr. Craig Arnold.</p>
           </li>
           <li>
-            <time>Sep 2021 – Jun 2023</time>
-            <h3>Undergraduate Researcher, Astrophysics</h3>
-            <p class="org">California State University, Northridge</p>
-            <p>Data analysis of protoplanetary disks, under the supervision of Dr. Luca Ricci.</p>
-          </li>
-          <li>
             <time>Jan 2022 – Jul 2022</time>
             <h3>Undergraduate Researcher, Biophysics</h3>
             <p class="org">California State University, Northridge</p>
             <p>Developed image- and data-analysis software for Dr. Taheri, Department of Physics and Astronomy.</p>
+          </li>
+          <li>
+            <time>Sep 2021 – Jun 2023</time>
+            <h3>Undergraduate Researcher, Astrophysics</h3>
+            <p class="org">California State University, Northridge</p>
+            <p>Data analysis of protoplanetary disks, under the supervision of Dr. Luca Ricci.</p>
           </li>
           <li>
             <time>Jan 2020 – Jun 2021</time>
@@ -336,23 +362,23 @@
             <p>Research on the prediction of neutron star rotational speeds, under the supervision of Dr. Dale Fields.</p>
           </li>
           <li>
-            <time>Sep 2017 – May 2023</time>
-            <h3>Academic Tutor and Teaching Assistant</h3>
-            <p class="org">California State University, Northridge</p>
-            <p>Tutored more than 400 students, over 90% of whom achieved a final grade of A.</p>
-          </li>
-          <li>
             <time>Jan 2020 – Present</time>
             <h3>Science Communication</h3>
             <p class="org">Independent · YouTube</p>
             <p>Founded and maintain an educational <a href="https://www.youtube.com/channel/UCKaDFD_Q2KRrKUvGt-rLfMA" target="_blank" rel="noopener">YouTube channel</a> presenting physics and programming concepts to students and a general audience.</p>
+          </li>
+          <li>
+            <time>Sep 2017 – May 2023</time>
+            <h3>Academic Tutor and Teaching Assistant</h3>
+            <p class="org">California State University, Northridge</p>
+            <p>Tutored more than 400 students, over 90% of whom achieved a final grade of A.</p>
           </li>
         </ol>
       </div>
     </section>
 
     <!-- EDUCATION + AWARDS -->
-    <section id="education" class="section alt">
+    <section id="education" class="section">
       <div class="wrap two-col">
         <div>
           <p class="eyebrow">Academic background</p>
@@ -376,7 +402,7 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section contact">
+    <section id="contact" class="section alt contact">
       <div class="wrap">
         <h2>Contact</h2>
         <p class="section-lede">I welcome inquiries regarding research collaboration in spacecraft testing, hardware-in-the-loop simulation, and guidance, navigation, and control.</p>
