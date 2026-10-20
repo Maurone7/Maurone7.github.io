@@ -54,7 +54,7 @@ function size() {
 function draw(t) {
   const w = canvas.offsetWidth, h = canvas.offsetHeight;
   const styles = getComputedStyle(root);
-  const line = styles.getPropertyValue('--line').trim();
+  const line = styles.getPropertyValue('--orbit').trim();
   const accent = styles.getPropertyValue('--accent').trim();
   const accent2 = styles.getPropertyValue('--accent-2').trim();
   ctx.clearRect(0, 0, w, h);
@@ -65,7 +65,7 @@ function draw(t) {
   orbits.forEach((o, i) => {
     const a = o.a * s, b = a * Math.sqrt(1 - o.e * o.e), c = a * o.e;
     ctx.save(); ctx.translate(cx, cy); ctx.rotate(o.w);
-    ctx.strokeStyle = line; ctx.lineWidth = 1.2; ctx.setLineDash([4, 6]);
+    ctx.strokeStyle = line; ctx.lineWidth = 1.3; ctx.setLineDash([4, 6]);
     ctx.beginPath(); ctx.ellipse(-c, 0, a, b, 0, 0, Math.PI * 2); ctx.stroke();
     const th = (t / 1000) * o.speed + i * 2;
     ctx.fillStyle = accent; ctx.setLineDash([]);
@@ -76,3 +76,27 @@ function draw(t) {
 }
 size(); addEventListener('resize', size);
 requestAnimationFrame(draw);
+
+// Lightbox: click a figure to view it full size
+const lightbox = document.createElement('dialog');
+lightbox.className = 'lightbox';
+lightbox.innerHTML = '<button class="lightbox-close" aria-label="Close">×</button><figure><img alt=""><figcaption></figcaption></figure>';
+document.body.appendChild(lightbox);
+const lbImg = lightbox.querySelector('img');
+const lbCap = lightbox.querySelector('figcaption');
+document.querySelectorAll('.card img, .plot img, .gallery img').forEach(img => {
+  img.classList.add('zoomable');
+  img.tabIndex = 0;
+  img.setAttribute('role', 'button');
+  const open = () => {
+    lbImg.src = img.currentSrc || img.src;
+    lbImg.alt = img.alt;
+    const cap = img.closest('figure')?.querySelector('figcaption');
+    lbCap.textContent = cap ? cap.textContent : img.alt;
+    lightbox.showModal();
+  };
+  img.addEventListener('click', open);
+  img.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+});
+// Any click closes it (backdrop, image or the × button); Esc is handled by <dialog>
+lightbox.addEventListener('click', () => lightbox.close());
