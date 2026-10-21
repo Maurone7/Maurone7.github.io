@@ -332,3 +332,9 @@ p a, li p a { text-decoration: underline; text-underline-offset: 2px; text-decor
 .skills > div { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem 1.1rem; }
 .skills dt { font-weight: 600; margin-bottom: .3rem; }
 .skills dd { margin: 0; color: var(--muted); font-size: .92rem; }
+
+.video-description { margin-top: .7rem; font-size: .88rem; color: var(--muted); }
+.video-description summary { cursor: pointer; color: var(--accent); font-weight: 500; }
+.video-description ol { padding-left: 1.1rem; margin: .5rem 0 0; }
+.video-description li { margin-bottom: .3rem; }
+.video-description b { color: var(--text); font-weight: 600; }
