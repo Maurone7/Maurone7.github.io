@@ -268,6 +268,7 @@ th { white-space: normal; vertical-align: bottom; }
 .chart .series { fill: none; stroke: var(--series); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .chart .crosshair { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 3; }
 .chart .dot { fill: var(--series); stroke: var(--surface); stroke-width: 2; }
+.chart .design { fill: var(--surface); stroke: var(--series); stroke-width: 2; }
 .chart-tip {
   position: absolute; pointer-events: none; background: var(--text); color: var(--bg);
   font: 500 12px/1.35 Inter, system-ui, sans-serif; padding: .35rem .55rem; border-radius: 6px;

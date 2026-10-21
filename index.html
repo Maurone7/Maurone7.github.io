@@ -235,17 +235,17 @@
           </article>
           <article class="card">
             <div class="chart-wrap">
-              <p class="chart-title">Maximum acceleration (m/s²) vs. load mass</p>
-              <div class="chart" id="accel-chart" role="img" aria-label="Line chart: maximum acceleration decreases from about 95 m/s² at 10 kg to about 4.8 m/s² at 200 kg, inversely proportional to load mass. Use the arrow keys to read values."></div>
+              <p class="chart-title">X-axis maximum acceleration (m/s²) vs. moving mass</p>
+              <div class="chart" id="accel-chart" role="img" aria-label="Line chart: X-axis maximum acceleration decreases only slightly with moving mass, from 4.9 m/s² at 10 kg to 3.9 m/s² at the 200 kg design load. Use the arrow keys to read values."></div>
             </div>
             <div class="card-body">
               <p class="tag">Sizing</p>
               <h4>Performance Envelope</h4>
-              <p>Each axis is sized with respect to motor peak torque, reflected inertia, gearbox emergency-stop rating, rack force, and bearing moment limits. The achievable acceleration decreases significantly with increasing payload mass.</p>
+              <p>Computed from the X-axis drive-train model: torque-limited motors, 50:1 gearboxes, and two drives sharing the load. Because the reflected load inertia is small relative to the motor rotor inertia (ratio 0.22), the available acceleration is nearly independent of payload, decreasing only from 4.9 to 3.9 m/s² between 10 and 200 kg.</p>
               <details class="chart-table">
                 <summary>View data</summary>
                 <table>
-                  <thead><tr><th>Load mass (kg)</th><th>Max. acceleration (m/s²)</th></tr></thead>
+                  <thead><tr><th>Moving mass (kg)</th><th>Max. acceleration (m/s²)</th></tr></thead>
                   <tbody id="accel-table"></tbody>
                 </table>
               </details>

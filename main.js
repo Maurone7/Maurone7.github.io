@@ -188,13 +188,27 @@ lightbox.addEventListener('keydown', e => {
 lightbox.addEventListener('click', () => lightbox.close());
 lightbox.addEventListener('close', () => root.classList.remove('no-scroll'));
 
-// Performance envelope: maximum acceleration vs. load mass (thesis Fig. 2.4).
-// The thesis curve follows a = F / m with F ≈ 954 N (fit to the published plot).
+// Performance envelope: X-axis maximum acceleration vs. total moving mass, from the drive-train model
+// of the dissertation (Sec. 2.4.2, Eqs. 2.2-2.6). Two drives share the load equally; each motor is
+// torque-limited to protect its gearbox.
 (function accelChart() {
   const el = document.getElementById('accel-chart');
   if (!el) return;
-  const F = 954, mMin = 10, mMax = 200, yMax = 100;
-  const accel = m => F / m;
+  const r = 0.015916;   // pinion pitch radius (m)
+  const N = 50;         // gearbox reduction
+  const eta = 0.65;     // gearbox efficiency
+  const mu = 0.04;      // friction factor
+  const g = 9.81;
+  const Jrotor = 0.7e-4;  // motor rotor inertia (kg m^2)
+  const Tmax = 1.08;      // torque limit per motor (N m)
+  const accel = M => {
+    const m = M / 2;                              // mass carried by each drive
+    const Jreflected = (m * r * r) / (N * N * eta);
+    const Tfriction = (mu * m * g * r) / (N * eta);
+    const alpha = (Tmax - Tfriction) / (Jrotor + Jreflected);
+    return (alpha * r) / N;
+  };
+  const mMin = 10, mMax = 200, yMax = 6, designMass = 200;
 
   const rows = [10, 25, 50, 75, 100, 150, 200]
     .map(m => `<tr><td>${m}</td><td>${accel(m).toFixed(1)}</td></tr>`).join('');
@@ -220,18 +234,21 @@ lightbox.addEventListener('close', () => root.classList.remove('no-scroll'));
     const svg = mk('svg', { viewBox: `0 0 ${W} ${H}`, 'aria-hidden': 'true' });
     el.insertBefore(svg, tip);
 
-    for (const a of [0, 25, 50, 75, 100]) {
+    for (const a of [0, 1, 2, 3, 4, 5, 6]) {
       mk('line', { class: a ? 'grid' : 'axis', x1: pad.l, x2: W - pad.r, y1: y(a), y2: y(a) }, svg);
       mk('text', { class: 'tick', x: pad.l - 6, y: y(a) + 4, 'text-anchor': 'end' }, svg).textContent = a;
     }
     for (const m of [0, 50, 100, 150, 200]) {
       mk('text', { class: 'tick', x: x(m), y: H - pad.b + 15, 'text-anchor': 'middle' }, svg).textContent = m;
     }
-    mk('text', { class: 'label', x: W - pad.r, y: H - 2, 'text-anchor': 'end' }, svg).textContent = 'Load mass (kg)';
+    mk('text', { class: 'label', x: W - pad.r, y: H - 2, 'text-anchor': 'end' }, svg).textContent = 'Moving mass (kg)';
 
     let d = '';
     for (let m = mMin; m <= mMax; m += 0.5) d += (d ? 'L' : 'M') + x(m).toFixed(1) + ',' + y(accel(m)).toFixed(1);
     mk('path', { class: 'series', d }, svg);
+    // Design point from the dissertation: 200 kg total moving mass
+    mk('circle', { class: 'design', cx: x(designMass), cy: y(accel(designMass)), r: 4.5 }, svg);
+    mk('text', { class: 'label', x: x(designMass) - 8, y: y(accel(designMass)) + 20, 'text-anchor': 'end' }, svg).textContent = 'design load';
 
     const cross = mk('line', { class: 'crosshair', y1: pad.t, y2: H - pad.b, visibility: 'hidden' }, svg);
     const dot = mk('circle', { class: 'dot', r: 5, visibility: 'hidden' }, svg);
@@ -263,7 +280,7 @@ lightbox.addEventListener('close', () => root.classList.remove('no-scroll'));
   new ResizeObserver(() => { draw(); if (activeMass !== null && document.activeElement === el) showAt(activeMass); }).observe(el);
   // Keyboard: focus the chart, then use the arrow keys (Shift for larger steps), Home and End
   el.tabIndex = 0;
-  el.addEventListener('focus', () => showAt(activeMass ?? 100));
+  el.addEventListener('focus', () => showAt(activeMass ?? designMass));
   el.addEventListener('blur', () => el.querySelector('svg rect')?.dispatchEvent(new Event('pointerleave')));
   el.addEventListener('keydown', e => {
     const step = e.shiftKey ? 25 : 5;
