@@ -323,3 +323,12 @@ p a, li p a { text-decoration: underline; text-underline-offset: 2px; text-decor
   .contact-links a { flex-direction: column; text-align: center; gap: .6rem; padding: 1.1rem .6rem; }
   .contact-links a > span:last-child { align-items: center; overflow-wrap: normal; }
 }
+
+/* SKILLS */
+.skills-wrap { margin-top: 3.5rem; }
+.skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0 0; }
+@media (max-width: 960px) { .skills { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .skills { grid-template-columns: 1fr; } }
+.skills > div { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem 1.1rem; }
+.skills dt { font-weight: 600; margin-bottom: .3rem; }
+.skills dd { margin: 0; color: var(--muted); font-size: .92rem; }

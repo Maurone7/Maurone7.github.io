@@ -10,3 +10,7 @@ Plain HTML/CSS/JS, served by GitHub Pages. No build step.
 
 ## Preview locally
     python3 -m http.server 8000   # then open http://localhost:8000
+
+## CV
+`cv.html` is the source of the CV; `assets/Mauro-Patimo-CV.pdf` is generated from it by printing the page
+(Chrome: File → Print → Save as PDF, Letter, margins "Default", background graphics on). Keep both in sync with `index.html`.

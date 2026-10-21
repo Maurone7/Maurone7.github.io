@@ -54,6 +54,7 @@
         <a href="#experience">Experience</a>
         <a href="#education">Education</a>
         <a href="#contact">Contact</a>
+        <a href="cv.html">CV</a>
         <button class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">◐</button>
       </nav>
     </div>
@@ -69,7 +70,7 @@
         <p class="lede">My research focuses on the design and validation of a <strong>six-degree-of-freedom gravity offloading system</strong> for ground-based testing of spacecraft, proximity operations, and in-space servicing, assembly, and manufacturing (ISAM).</p>
         <div class="cta">
           <a class="btn primary" href="#research">Research</a>
-          <a class="btn" href="#contact">Contact</a>
+          <a class="btn" href="assets/Mauro-Patimo-CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
           <a class="btn btn-icon" href="https://www.linkedin.com/in/mauro-patimo/" target="_blank" rel="noopener"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span>LinkedIn</a>
           <a class="btn btn-icon" href="https://scholar.google.com/citations?user=Vb86uWAAAAAJ&amp;hl=en" target="_blank" rel="noopener"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg></span>Google Scholar</a>
         </div>
@@ -274,7 +275,7 @@
               <li><b>Cartesian gantry:</b> two translational degrees of freedom, constructed from 8020 aluminum profiles with a gear-driven X–Y mechanism.</li>
               <li><b>Three-axis gimbal:</b> designed in-house to accommodate payloads of arbitrary shape, particularly cylindrical bodies, and to rotate them about an arbitrary axis.</li>
               <li><b>Modular architecture:</b> each subsystem functions as an independent off-loader. The Y-axis was subsequently extended to 5 ft by replacing only the structural beams.</li>
-              <li><b>Control system:</b> a Raspberry Pi 5 commands Teknic ClearPath servo motors with encoder feedback, real-time data acquisition, and multi-threaded command execution.</li>
+              <li><b>Control system:</b> a Raspberry Pi 5 running multi-threaded C++ commands Teknic ClearPath servo motors with encoder feedback, real-time data acquisition, and multi-threaded command execution.</li>
               <li><b>Additive manufacturing:</b> motor mounts, gear racks, gears, and gimbal rings were fabricated on a Prusa XL and verified through finite-element analysis.</li>
             </ul>
             <dl class="spec wide">
@@ -411,6 +412,18 @@
             <li><b>Olimpiadi Italiane di Astronomia</b><span>13th place, national astronomy competition (Italy)</span></li>
           </ul>
         </div>
+      </div>
+      <div class="wrap skills-wrap" id="skills">
+        <p class="eyebrow">Expertise</p>
+        <h2>Technical Skills</h2>
+        <dl class="skills">
+          <div><dt>Mechanical design &amp; analysis</dt><dd>Gantry and gimbal design, actuator sizing, finite-element analysis (Autodesk Fusion, FreeCAD)</dd></div>
+          <div><dt>Motion control &amp; hardware</dt><dd>Servo drive integration (Teknic ClearPath), Raspberry Pi 5, multi-threaded C++ control software, encoder data acquisition</dd></div>
+          <div><dt>Simulation &amp; analysis</dt><dd>Trajectory and discretization-error simulation (Rust), orbital-condition scaling, data analysis and visualization</dd></div>
+          <div><dt>Astrodynamics</dt><dd>Keplerian and elliptical orbits, cislunar Lyapunov orbits, rendezvous and docking emulation</dd></div>
+          <div><dt>Fabrication</dt><dd>Additive manufacturing (Prusa XL, PrusaSlicer), aluminum T-slot structures</dd></div>
+          <div><dt>Optics</dt><dd>Femtosecond-laser 3-D imaging with high-speed liquid varifocal lenses</dd></div>
+        </dl>
       </div>
     </section>
 

@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mauro Patimo · CV</title>
+  <meta name="description" content="Curriculum vitae of Mauro Patimo, Ph.D. student in Aerospace Engineering at The Pennsylvania State University.">
+  <link rel="canonical" href="https://maurone7.github.io/cv.html">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --text: #121826; --muted: #4b5466; --line: #d5dbe4; --accent: #1f4fd1; }
+    * { box-sizing: border-box; }
+    html { background: #eef1f5; }
+    body {
+      margin: 0 auto; max-width: 8.5in; background: #fff; color: var(--text);
+      font: 10pt/1.45 Inter, system-ui, -apple-system, sans-serif; padding: .6in .7in;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    header { border-bottom: 2px solid var(--text); padding-bottom: .6rem; margin-bottom: .9rem; }
+    h1 { font-size: 22pt; margin: 0; letter-spacing: -.02em; }
+    .role { margin: .1rem 0 .4rem; color: var(--muted); font-size: 10.5pt; }
+    .links { display: flex; flex-wrap: wrap; gap: .2rem 1.1rem; font-size: 9pt; }
+    h2 {
+      font-size: 9.5pt; text-transform: uppercase; letter-spacing: .12em; color: var(--accent);
+      margin: 1.05rem 0 .45rem; padding-bottom: .2rem; border-bottom: 1px solid var(--line);
+    }
+    .entry { margin-bottom: .55rem; break-inside: avoid; }
+    h2 { break-after: avoid; }
+    section.keep { break-inside: avoid; }
+    .row { display: flex; justify-content: space-between; gap: 1rem; }
+    .row b { font-weight: 600; }
+    .date { white-space: nowrap; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .org { color: var(--muted); }
+    .entry p, .entry ul { margin: .15rem 0 0; }
+    ul { padding-left: 1.1rem; }
+    li { margin: .1rem 0; }
+    .skills { display: grid; grid-template-columns: 9.5rem 1fr; gap: .25rem .8rem; margin: 0; }
+    .skills dt { font-weight: 600; }
+    .skills dd { margin: 0; }
+    .toolbar { max-width: 8.5in; margin: 1rem auto; display: flex; justify-content: space-between; font: 10pt Inter, sans-serif; padding: 0 .2in; }
+    @media screen and (max-width: 700px) {
+      body { padding: 1.2rem 16px; }
+      .row { flex-direction: column; gap: 0; }
+      .skills { grid-template-columns: 1fr; }
+      .skills dd { margin-bottom: .4rem; }
+    }
+    @media print {
+      html, body { background: #fff; }
+      body { max-width: none; padding: 0; }
+      .toolbar { display: none; }
+      a { color: var(--text); }
+      @page { size: letter; margin: .55in .65in; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="toolbar"><a href="./">← Back to the website</a><a href="assets/Mauro-Patimo-CV.pdf">Download PDF</a></nav>
+  <header>
+    <h1>Mauro Patimo</h1>
+    <p class="role">Ph.D. Student, Aerospace Engineering · The Pennsylvania State University</p>
+    <div class="links">
+      <a href="mailto:mauro.patimo@gmail.com">mauro.patimo@gmail.com</a>
+      <a href="https://maurone7.github.io">maurone7.github.io</a>
+      <a href="https://www.linkedin.com/in/mauro-patimo/">linkedin.com/in/mauro-patimo</a>
+      <a href="https://scholar.google.com/citations?user=Vb86uWAAAAAJ&amp;hl=en">Google Scholar</a>
+      <a href="https://github.com/Maurone7">github.com/Maurone7</a>
+    </div>
+  </header>
+
+  <section class="keep">
+    <h2>Research Interests</h2>
+    <p>Gravity offloading and ground-based spacecraft testing; hardware-in-the-loop emulation of orbital motion, proximity operations, and in-space servicing, assembly, and manufacturing (ISAM); guidance, navigation, and control.</p>
+  </section>
+
+  <section class="keep">
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="row"><span><b>Ph.D., Aerospace Engineering</b> · The Pennsylvania State University</span><span class="date">Expected May 2028</span></div>
+      <p class="org">Advisor: Dr. Puneet Singla. Dissertation (in progress): <i>A 6DOF Gravity Offloading System</i></p>
+    </div>
+    <div class="entry">
+      <div class="row"><span><b>M.S., Aerospace Engineering</b> · The Pennsylvania State University</span><span class="date">2025</span></div>
+      <p class="org">Advisor: Dr. Puneet Singla. Thesis: <a href="https://etda.libraries.psu.edu/files/final_submissions/33747"><i>A Modular Gravity Off-Loading System</i></a></p>
+    </div>
+    <div class="entry">
+      <div class="row"><span><b>B.S., Astrophysics</b> · California State University, Northridge</span><span class="date">May 2023</span></div>
+      <p class="org">Research advisor: Dr. Luca Ricci</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Research Experience</h2>
+    <div class="entry">
+      <div class="row"><span><b>Graduate Researcher, Vehicle Dynamics &amp; Controls</b> · The Pennsylvania State University</span><span class="date">May 2024 – Present</span></div>
+      <ul>
+        <li>Designing and building GRIP, a 9 m × 4 m six-degree-of-freedom gravity offloading facility for satellite and ISAM testing (advisors: Dr. Puneet Singla, Dr. Roshan Eapen).</li>
+        <li>Sized the X, Y, and Z axes against motor torque, reflected inertia, gearbox, rack, and bearing limits; validated the structure with finite-element analysis.</li>
+        <li>Developed scaling criteria that map LEO, MEO, and GEO conditions onto the laboratory apparatus.</li>
+        <li>Demonstrated circular-trajectory tracking with 0.35 mm mean radial error.</li>
+        <li>M.S.: built a modular 5-DOF prototype (gantry and three-axis gimbal) that reproduced Keplerian, cislunar Lyapunov, and docking trajectories with sub-millimeter precision.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="row"><span><b>Research Intern, Plasma and Laser Physics</b> · Princeton University</span><span class="date">Jun 2022 – Aug 2022</span></div>
+      <p>Three-dimensional imaging with a femtosecond laser and ultra-high-speed liquid varifocal lenses (Dr. Craig Arnold).</p>
+    </div>
+    <div class="entry">
+      <div class="row"><span><b>Undergraduate Researcher, Biophysics</b> · California State University, Northridge</span><span class="date">Jan 2022 – Jul 2022</span></div>
+      <p>Image- and data-analysis software for Dr. Taheri, Department of Physics and Astronomy.</p>
+    </div>
+    <div class="entry">
+      <div class="row"><span><b>Undergraduate Researcher, Astrophysics</b> · California State University, Northridge</span><span class="date">Sep 2021 – Jun 2023</span></div>
+      <p>Data analysis of protoplanetary disks (Dr. Luca Ricci).</p>
+    </div>
+    <div class="entry">
+      <div class="row"><span><b>Undergraduate Researcher, Astrophysics</b> · Los Angeles Pierce College</span><span class="date">Jan 2020 – Jun 2021</span></div>
+      <p>Prediction of neutron star rotational speeds (Dr. Dale Fields).</p>
+    </div>
+  </section>
+
+  <section class="keep">
+    <h2>Teaching and Outreach</h2>
+    <div class="entry">
+      <div class="row"><span><b>Graduate Teaching Assistant</b> · The Pennsylvania State University</span><span class="date">Aug 2023 – May 2024</span></div>
+      <p>Office hours, examination grading, and solution keys.</p>
+    </div>
+    <div class="entry">
+      <div class="row"><span><b>Academic Tutor and Teaching Assistant</b> · California State University, Northridge</span><span class="date">Sep 2017 – May 2023</span></div>
+      <p>Tutored more than 400 students, over 90% of whom achieved a final grade of A.</p>
+    </div>
+    <div class="entry">
+      <div class="row"><span><b>Science Communication</b> · <a href="https://www.youtube.com/channel/UCKaDFD_Q2KRrKUvGt-rLfMA">YouTube</a></span><span class="date">Jan 2020 – Present</span></div>
+      <p>Educational channel presenting physics and programming concepts.</p>
+    </div>
+  </section>
+
+  <section class="keep">
+    <h2>Technical Skills</h2>
+    <dl class="skills">
+      <dt>Mechanical design</dt><dd>Gantry and gimbal design, actuator sizing, FEA (Autodesk Fusion, FreeCAD)</dd>
+      <dt>Motion control</dt><dd>Teknic ClearPath servos, Raspberry Pi 5, multi-threaded C++, encoder data acquisition</dd>
+      <dt>Simulation</dt><dd>Trajectory and discretization-error simulation (Rust), orbital-condition scaling</dd>
+      <dt>Astrodynamics</dt><dd>Keplerian and elliptical orbits, cislunar Lyapunov orbits, docking emulation</dd>
+      <dt>Fabrication</dt><dd>Additive manufacturing (Prusa XL, PrusaSlicer), aluminum T-slot structures</dd>
+    </dl>
+  </section>
+
+  <section class="keep">
+    <h2>Honors and Awards</h2>
+    <ul>
+      <li>Sigma Pi Sigma, National Physics Honor Society</li>
+      <li>6th place, Kangourou della Matematica (national mathematics competition, Italy)</li>
+      <li>13th place, Olimpiadi Italiane di Astronomia (national astronomy competition, Italy)</li>
+    </ul>
+  </section>
+</body>
+</html>
