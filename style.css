@@ -375,3 +375,36 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 .footer .to-top { color: var(--muted); padding: .25rem 0; }
 .footer .to-top:hover { color: var(--text); }
 @media (max-width: 760px) { .footer-inner { flex-direction: column; align-items: flex-start; } }
+
+/* PRINT: a clean, ink-friendly version of the page */
+@media print {
+  :root, :root[data-theme="dark"] {
+    --bg: #fff; --bg-alt: #fff; --surface: #fff; --text: #000; --muted: #333; --line: #ccc;
+    --accent: #1f4fd1; --accent-2: #b03a00; --shadow: none;
+  }
+  @page { margin: 16mm 14mm; }
+  body { font-size: 10.5pt; background: #fff; }
+  .nav, .skip-link, #orbit, .theme-toggle, .media-grid, .chapters, .video-description,
+  .chart-table summary, .lightbox, .to-top, .hero .cta { display: none !important; }
+  .chart-table { display: block; } .chart-table > table { display: table; }
+  .hero { padding: 0 0 1rem; border: 0; }
+  .hero h1 { font-size: 28pt; }
+  .section { padding: 1.2rem 0; border: 0 !important; }
+  h2 { font-size: 16pt; } h3.sub { margin-top: 1.2rem; }
+  .card, .thesis, .stat, .skills > div, .table-wrap, .plot, .gallery figure, .timeline li, .edu li { break-inside: avoid; }
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .gallery { grid-template-columns: repeat(4, 1fr); }
+  .zoomable:hover { box-shadow: none; }
+  a { color: var(--text); text-decoration: none; }
+  h2, h3, h4, .eyebrow, .sub { break-after: avoid; }
+  .section-lede, .stats, .split, .two-col > div, .two-col-list, .checklist li, .spec { break-inside: avoid; }
+  .contact { text-align: left; }
+  .contact .section-lede { margin: 0 0 .6rem; }
+  .contact-links { display: block; max-width: none; }
+  .contact-links a { display: flex !important; flex-direction: row !important; align-items: center; gap: .6rem;
+                     border: 0; padding: .15rem 0 !important; text-align: left !important; }
+  .contact-links a > span:last-child { flex-direction: row !important; gap: .5rem; align-items: baseline !important; font-size: 9pt; }
+  .contact-links .ico { width: 20px; height: 20px; border-radius: 4px; }
+  .contact-links .ico svg { width: 14px; height: 14px; }
+  .contact-links a[data-url]::after { content: attr(data-url); color: #555; font-size: 9pt; }
+}
