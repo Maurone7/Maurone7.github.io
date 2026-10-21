@@ -25,6 +25,7 @@
     "url": "https://maurone7.github.io/",
     "jobTitle": "Ph.D. Student, Aerospace Engineering",
     "affiliation": { "@type": "CollegeOrUniversity", "name": "The Pennsylvania State University" },
+    "memberOf": { "@type": "ResearchOrganization", "name": "Astrodynamics Research Group of Penn State (Argops)", "url": "https://argops.psu.edu" },
     "alumniOf": [
       { "@type": "CollegeOrUniversity", "name": "The Pennsylvania State University" },
       { "@type": "CollegeOrUniversity", "name": "California State University, Northridge" }
@@ -44,7 +45,7 @@
       "@context": "https://schema.org",
       "@type": "VideoObject",
       "name": "GRIP: Gravity-Offloaded Robotics and Proximity Operations testbed",
-      "description": "Animated overview of GRIP, a 9 × 4 m six-degree-of-freedom gravity offloading facility at Penn State: frame, X and Y axes, telescopic Z tower and three-axis gimbal, scaled orbit runs, and docking.",
+      "description": "Animated overview of GRIP, a 9 × 4 × 3 m six-degree-of-freedom gravity offloading facility at Penn State: frame, X and Y axes, telescopic Z tower and three-axis gimbal, scaled orbit runs, and docking.",
       "thumbnailUrl": "https://maurone7.github.io/assets/img/video-poster.jpg",
       "uploadDate": "2026-10-20",
       "duration": "PT1M8S",
@@ -94,7 +95,7 @@
     <section class="hero">
       <canvas id="orbit" aria-hidden="true"></canvas>
       <div class="wrap hero-inner">
-        <p class="eyebrow">Phd Student · Aerospace Engineering · Penn State</p>
+        <p class="eyebrow">Phd Student · Aerospace Engineering · Penn State · <a class="lab-link" href="https://argops.psu.edu" target="_blank" rel="noopener" title="Astrodynamics Research Group of Penn State" aria-label="Argops, Astrodynamics Research Group of Penn State (opens in a new tab)">Argops ↗</a></p>
         <h1>Mauro Patimo</h1>
         <p class="lede">My research focuses on the design and validation of a <strong>six-degree-of-freedom gravity offloading system</strong> for ground-based testing of spacecraft, proximity operations, and in-space servicing, assembly, and manufacturing (ISAM).</p>
         <div class="cta">
@@ -116,10 +117,10 @@
       <div class="wrap">
         <p class="eyebrow">Current research · Ph.D.</p>
         <h2>GRIP: A 6-DOF Gravity Offloading Facility</h2>
-        <p class="section-lede">A 9&nbsp;m × 4&nbsp;m gantry facility that positions a payload in three translational and three rotational degrees of freedom. The system enables ground-based testing of satellites, docking mechanisms, and in-space assembly hardware under representative orbital kinematics.</p>
+        <p class="section-lede">A 9&nbsp;m × 4&nbsp;m × 3&nbsp;m gantry facility that positions a payload in three translational and three rotational degrees of freedom. The system enables ground-based testing of satellites, docking mechanisms, and in-space assembly hardware under representative orbital kinematics.</p>
 
         <div class="stats">
-          <div class="stat"><b>9 × 4 m</b><span>workspace footprint</span></div>
+          <div class="stat"><b>9 × 4 × 3 m</b><span>workspace (L&nbsp;×&nbsp;W&nbsp;×&nbsp;H)</span></div>
           <div class="stat"><b>6</b><span>degrees of freedom</span></div>
           <div class="stat"><b>150 kg</b><span>payload capacity</span></div>
           <div class="stat"><b>0.35 mm</b><span>mean radial error, circular trajectory</span></div>
@@ -167,7 +168,7 @@
             <div class="media-frame" id="model-frame">
               <model-viewer id="system-model" src="assets/models/system.glb" poster="assets/img/model-poster.jpg" alt="3D model of the gravity offloading system" camera-controls auto-rotate auto-rotate-delay="1500" rotation-per-second="12deg" camera-orbit="-35deg 68deg 78%" environment-image="neutral" shadow-intensity="0.8" exposure="1.1" interaction-prompt="none" touch-action="pan-y"></model-viewer>
               <div class="media-fallback" hidden>
-                <picture><source type="image/webp" srcset="assets/img/model-poster-800.webp 900w, assets/img/model-poster.webp 1600w" sizes="100vw"><img loading="lazy" src="assets/img/model-poster.jpg" srcset="assets/img/model-poster-800.jpg 900w, assets/img/model-poster.jpg 1600w" sizes="100vw" width="1600" height="800" alt="Rendered view of the gravity offloading system: a 9 m by 4 m aluminum gantry frame with a cross beam, telescopic column and gimbal ring"></picture>
+                <picture><source type="image/webp" srcset="assets/img/model-poster-800.webp 900w, assets/img/model-poster.webp 1600w" sizes="100vw"><img loading="lazy" src="assets/img/model-poster.jpg" srcset="assets/img/model-poster-800.jpg 900w, assets/img/model-poster.jpg 1600w" sizes="100vw" width="1600" height="800" alt="Rendered view of the gravity offloading system: a 9 m by 4 m by 3 m aluminum gantry frame with a cross beam, telescopic column and gimbal ring"></picture>
                 <p>Still render shown. The interactive 3D view needs WebGL and a web server.</p>
               </div>
             </div>

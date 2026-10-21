@@ -364,3 +364,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 .section-text { max-width: 760px; }
 .two-col-list { display: grid; grid-template-columns: 1fr 1fr; gap: .2rem 2.5rem; max-width: 1000px; }
 @media (max-width: 760px) { .two-col-list { grid-template-columns: 1fr; } }
+
+.eyebrow .lab-link { color: inherit; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.eyebrow .lab-link:hover { color: var(--text); }
+
+.stat b { white-space: nowrap; }
+@media (max-width: 420px) { .stat b { font-size: 1.3rem; } .stat { padding: 1rem; } }
