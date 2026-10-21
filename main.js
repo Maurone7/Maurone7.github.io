@@ -113,7 +113,8 @@ let heroVisible = true, frame = 0;
 function draw(t = 0) {
   const w = canvas.offsetWidth, h = canvas.offsetHeight;
   ctx.clearRect(0, 0, w, h);
-  const cx = w > 900 ? w * 0.78 : w * 0.85, cy = h * 0.5;
+  // On narrow screens the orbits sit lower and further right, mostly clear of the text
+  const cx = w > 900 ? w * 0.78 : w * 0.92, cy = w > 900 ? h * 0.5 : h * 0.62;
   const s = Math.min(1, w / 1100);
   ctx.fillStyle = colors.accent2;
   ctx.beginPath(); ctx.arc(cx, cy, 7 * s + 3, 0, Math.PI * 2); ctx.fill();
