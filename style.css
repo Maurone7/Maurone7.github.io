@@ -199,8 +199,9 @@ tbody tr:last-child td { border-bottom: 0; }
 /* CONTACT */
 .contact { text-align: center; }
 .contact .section-lede { margin: 0 auto 2rem; }
-.contact-links { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; max-width: 1100px; margin: 0 auto; text-align: left; }
-@media (max-width: 860px) { .contact-links { grid-template-columns: 1fr 1fr; } }
+.contact-links { display: grid; grid-template-columns: repeat(5, 1fr); gap: .8rem; max-width: 1180px; margin: 0 auto; text-align: left; }
+@media (max-width: 1100px) { .contact-links { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 760px) { .contact-links { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 480px) { .contact-links { grid-template-columns: 1fr; } }
 .contact-links a {
   display: flex; align-items: center; gap: .85rem; padding: .9rem 1rem; border: 1px solid var(--line);
@@ -311,3 +312,14 @@ p a, li p a { text-decoration: underline; text-underline-offset: 2px; text-decor
 .chapters button:hover { color: var(--text); border-color: var(--accent); }
 .chapters button.current { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
 .media-placeholder a { color: var(--accent); }
+
+.thesis-links { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin: 0; }
+.section-links { margin: -.4rem 0 0; }
+.text-link { text-decoration: none !important; }
+.text-link:hover { text-decoration: underline !important; }
+
+/* Five contact cards in one row: stack icon over text so long values (the email) fit */
+@media (min-width: 1101px) {
+  .contact-links a { flex-direction: column; text-align: center; gap: .6rem; padding: 1.1rem .6rem; }
+  .contact-links a > span:last-child { align-items: center; overflow-wrap: normal; }
+}
