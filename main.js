@@ -38,36 +38,53 @@ const sectionObserver = new IntersectionObserver(entries => {
 }, { rootMargin: '-45% 0px -50% 0px' });
 sections.forEach(s => sectionObserver.observe(s));
 
-// Media: show a placeholder if a file is missing
+// Media: show a placeholder if a file fails to load
 function showPlaceholder(frameId) {
   document.getElementById(frameId).querySelector('.media-placeholder').hidden = false;
 }
-function checkMedia(el, url, frameId) {
-  const fail = () => { el.hidden = true; showPlaceholder(frameId); };
-  el.addEventListener('error', fail);
-  fetch(url, { method: 'HEAD' }).then(r => { if (!r.ok) fail(); }).catch(fail);
-}
-// The video card stays hidden (and nothing is requested) until its `hidden` attribute is removed
-const videoCard = document.getElementById('video-card');
-if (!videoCard.hidden) {
-  document.querySelector('.media-grid').classList.remove('single');
-  const video = document.getElementById('system-video');
-  checkMedia(video, video.querySelector('source').getAttribute('src'), 'video-frame');
-}
+// Video: placeholder with a download link if it fails; chapter buttons seek and play
+const video = document.getElementById('system-video');
+video.addEventListener('error', () => { video.hidden = true; showPlaceholder('video-frame'); }, true);
+document.querySelectorAll('.chapters button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    video.currentTime = +btn.dataset.t;
+    video.play().catch(() => {});
+  });
+});
+// Mark the chapter currently playing
+video.addEventListener('timeupdate', () => {
+  const buttons = [...document.querySelectorAll('.chapters button')];
+  const current = buttons.filter(b => +b.dataset.t <= video.currentTime + 0.25).pop();
+  buttons.forEach(b => b.classList.toggle('current', b === current));
+});
 
-// 3D viewer: load the model-viewer library (~1 MB) only when the model is about to scroll into view
+// 3D viewer: load the model-viewer library (~1 MB) only when the model is about to scroll into view.
+// If the viewer can't run (no WebGL, page opened from disk, script blocked), show a still render instead.
 const model = document.getElementById('system-model');
+const modelFrame = document.getElementById('model-frame');
+const showStill = () => {
+  model.hidden = true;
+  modelFrame.querySelector('.media-fallback').hidden = false;
+};
 if (reducedMotion) model.removeAttribute('auto-rotate');
-const modelObserver = new IntersectionObserver(entries => {
-  if (!entries[0].isIntersecting) return;
-  modelObserver.disconnect();
-  const script = document.createElement('script');
-  script.type = 'module';
-  script.src = 'https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js';
-  document.head.appendChild(script);
-  checkMedia(model, model.getAttribute('src'), 'model-frame');
-}, { rootMargin: '600px 0px' });
-modelObserver.observe(model);
+model.addEventListener('error', showStill);
+const hasWebGL = (() => {
+  try { return !!document.createElement('canvas').getContext('webgl2'); } catch (e) { return false; }
+})();
+if (location.protocol === 'file:' || !hasWebGL) {
+  showStill();
+} else {
+  const modelObserver = new IntersectionObserver(entries => {
+    if (!entries[0].isIntersecting) return;
+    modelObserver.disconnect();
+    const script = document.createElement('script');
+    script.type = 'module';
+    script.src = 'https://unpkg.com/@google/model-viewer@3.5.0/dist/model-viewer.min.js';
+    script.onerror = showStill;
+    document.head.appendChild(script);
+  }, { rootMargin: '600px 0px' });
+  modelObserver.observe(model);
+}
 
 // Hero: a few satellites orbiting a central body
 const canvas = document.getElementById('orbit');
