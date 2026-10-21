@@ -338,3 +338,5 @@ p a, li p a { text-decoration: underline; text-underline-offset: 2px; text-decor
 .video-description ol { padding-left: 1.1rem; margin: .5rem 0 0; }
 .video-description li { margin-bottom: .3rem; }
 .video-description b { color: var(--text); font-weight: 600; }
+
+picture { display: contents; }
