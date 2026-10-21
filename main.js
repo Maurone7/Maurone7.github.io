@@ -210,9 +210,7 @@ lightbox.addEventListener('close', () => root.classList.remove('no-scroll'));
   };
   const mMin = 10, mMax = 200, yMax = 6, designMass = 200;
 
-  const rows = [10, 25, 50, 75, 100, 150, 200]
-    .map(m => `<tr><td>${m}</td><td>${accel(m).toFixed(1)}</td></tr>`).join('');
-  document.getElementById('accel-table').innerHTML = rows;
+  // The data table is written into the HTML so it is readable without JavaScript
 
   const NS = 'http://www.w3.org/2000/svg';
   const mk = (tag, attrs, parent) => {

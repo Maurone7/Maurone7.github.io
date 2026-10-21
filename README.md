@@ -14,3 +14,6 @@ Plain HTML/CSS/JS, served by GitHub Pages. No build step.
 ## CV
 `cv.html` is the source of the CV; `assets/Mauro-Patimo-CV.pdf` is generated from it by printing the page
 (Chrome: File → Print → Save as PDF, Letter, margins "Default", background graphics on). Keep both in sync with `index.html`.
+
+## Housekeeping
+When you change content, update "Last updated" in the footer of `index.html` and the `lastmod` dates in `sitemap.xml`.
