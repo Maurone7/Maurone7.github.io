@@ -183,7 +183,7 @@ tbody tr:last-child td { border-bottom: 0; }
   border-radius: 50%; background: var(--bg); border: 2px solid var(--accent);
 }
 .timeline li:first-child::before { background: var(--accent); }
-.timeline time { font-family: var(--mono); font-size: .78rem; color: var(--muted); }
+.timeline .when { display: block;  font-family: var(--mono); font-size: .78rem; color: var(--muted); }
 .timeline h3 { font-size: 1.1rem; margin: .2rem 0 .1rem; }
 .timeline .org { color: var(--accent-2); font-size: .9rem; margin: 0 0 .3rem; font-weight: 500; }
 .timeline p { margin: 0; color: var(--muted); max-width: 720px; }
@@ -358,3 +358,5 @@ th .sym { text-transform: none; font-size: .95rem; }
 .lightbox-count { margin: .3rem 0 0; color: #97a1b3; font: .8rem 'JetBrains Mono', monospace; }
 @media (max-width: 700px) { .lightbox-nav { top: auto; bottom: 18px; transform: none; height: 48px; } }
 .chart:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 6px; }
+
+.media-card > figure { margin: 0; }
