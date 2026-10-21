@@ -1,6 +1,6 @@
 # Maurone7.github.io
 
-Personal website of Mauro Patimo — Ph.D. student in Aerospace Engineering at Penn State.
+Personal website of Mauro Patimo — PhD student in Aerospace Engineering at Penn State.
 
 Plain HTML/CSS/JS, served by GitHub Pages. No build step.
 
@@ -16,4 +16,4 @@ Plain HTML/CSS/JS, served by GitHub Pages. No build step.
 (Chrome: File → Print → Save as PDF, Letter, margins "Default", background graphics on). Keep both in sync with `index.html`.
 
 ## Housekeeping
-When you change content, update "Last updated" in the footer of `index.html` and the `lastmod` dates in `sitemap.xml`.
+When you change content, update the `lastmod` dates in `sitemap.xml`.
