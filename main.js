@@ -143,29 +143,48 @@ readColors(); size();
 addEventListener('resize', () => { size(); if (reducedMotion) draw(); });
 draw();
 
-// Lightbox: click a figure to view it full size
+// Lightbox: click a figure to view it full size; arrow keys or the side buttons step through figures
 const lightbox = document.createElement('dialog');
 lightbox.className = 'lightbox';
-lightbox.innerHTML = '<button class="lightbox-close" aria-label="Close">×</button><figure><img alt=""><figcaption></figcaption></figure>';
+lightbox.innerHTML = `
+  <button class="lightbox-close" aria-label="Close">×</button>
+  <button class="lightbox-nav prev" aria-label="Previous figure">‹</button>
+  <figure><img alt=""><figcaption></figcaption><p class="lightbox-count"></p></figure>
+  <button class="lightbox-nav next" aria-label="Next figure">›</button>`;
 document.body.appendChild(lightbox);
 const lbImg = lightbox.querySelector('img');
 const lbCap = lightbox.querySelector('figcaption');
-document.querySelectorAll('.card img, .plot img, .gallery img').forEach(img => {
+const lbCount = lightbox.querySelector('.lightbox-count');
+const zoomables = [...document.querySelectorAll('.card img, .plot img, .gallery img')];
+let lbIndex = 0;
+function showFigure(i) {
+  lbIndex = (i + zoomables.length) % zoomables.length;
+  const img = zoomables[lbIndex];
+  lbImg.src = img.getAttribute('src');  // always the full-resolution file
+  lbImg.alt = img.alt;
+  const cap = img.closest('figure')?.querySelector('figcaption');
+  lbCap.textContent = cap ? cap.textContent : img.alt;
+  lbCount.textContent = `${lbIndex + 1} / ${zoomables.length}`;
+}
+zoomables.forEach((img, i) => {
   img.classList.add('zoomable');
   img.tabIndex = 0;
   img.setAttribute('role', 'button');
   const open = () => {
-    lbImg.src = img.getAttribute('src');  // always the full-resolution file
-    lbImg.alt = img.alt;
-    const cap = img.closest('figure')?.querySelector('figcaption');
-    lbCap.textContent = cap ? cap.textContent : img.alt;
+    showFigure(i);
     lightbox.showModal();
     root.classList.add('no-scroll');
   };
   img.addEventListener('click', open);
   img.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
 });
-// Any click closes it (backdrop, image or the × button); Esc is handled by <dialog>
+lightbox.querySelector('.prev').addEventListener('click', e => { e.stopPropagation(); showFigure(lbIndex - 1); });
+lightbox.querySelector('.next').addEventListener('click', e => { e.stopPropagation(); showFigure(lbIndex + 1); });
+lightbox.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft') showFigure(lbIndex - 1);
+  if (e.key === 'ArrowRight') showFigure(lbIndex + 1);
+});
+// Any other click closes it (backdrop, image or the × button); Esc is handled by <dialog>
 lightbox.addEventListener('click', () => lightbox.close());
 lightbox.addEventListener('close', () => root.classList.remove('no-scroll'));
 
@@ -189,7 +208,7 @@ lightbox.addEventListener('close', () => root.classList.remove('no-scroll'));
     return n;
   };
   const tip = document.createElement('div');
-  tip.className = 'chart-tip'; tip.hidden = true; el.appendChild(tip);
+  tip.className = 'chart-tip'; tip.hidden = true; tip.setAttribute('role', 'status'); el.appendChild(tip);
 
   function draw() {
     el.querySelector('svg')?.remove();
@@ -219,9 +238,9 @@ lightbox.addEventListener('close', () => root.classList.remove('no-scroll'));
     // Transparent hit area covering the whole plot, larger than the line itself
     const hit = mk('rect', { x: pad.l, y: 0, width: pw, height: H, fill: 'transparent' }, svg);
 
-    const show = e => {
-      const r = svg.getBoundingClientRect();
-      const m = Math.round(Math.min(mMax, Math.max(mMin, ((e.clientX - r.left - pad.l) / pw) * mMax)));
+    showAt = m => {
+      m = Math.round(Math.min(mMax, Math.max(mMin, m)));
+      activeMass = m;
       const px = x(m), py = y(accel(m));
       cross.setAttribute('x1', px); cross.setAttribute('x2', px); cross.setAttribute('visibility', 'visible');
       dot.setAttribute('cx', px); dot.setAttribute('cy', py); dot.setAttribute('visibility', 'visible');
@@ -230,11 +249,27 @@ lightbox.addEventListener('close', () => root.classList.remove('no-scroll'));
       tip.style.top = py + 'px';
       tip.hidden = false;
     };
+    const show = e => {
+      const r = svg.getBoundingClientRect();
+      showAt(((e.clientX - r.left - pad.l) / pw) * mMax);
+    };
     const hide = () => { cross.setAttribute('visibility', 'hidden'); dot.setAttribute('visibility', 'hidden'); tip.hidden = true; };
     hit.addEventListener('pointermove', show);
     hit.addEventListener('pointerdown', show);
     hit.addEventListener('pointerleave', hide);
   }
+  let showAt = () => {}, activeMass = null;
   draw();
-  new ResizeObserver(draw).observe(el);
+  new ResizeObserver(() => { draw(); if (activeMass !== null && document.activeElement === el) showAt(activeMass); }).observe(el);
+  // Keyboard: focus the chart, then use the arrow keys (Shift for larger steps), Home and End
+  el.tabIndex = 0;
+  el.addEventListener('focus', () => showAt(activeMass ?? 100));
+  el.addEventListener('blur', () => el.querySelector('svg rect')?.dispatchEvent(new Event('pointerleave')));
+  el.addEventListener('keydown', e => {
+    const step = e.shiftKey ? 25 : 5;
+    const next = { ArrowRight: activeMass + step, ArrowUp: activeMass + step, ArrowLeft: activeMass - step, ArrowDown: activeMass - step, Home: mMin, End: mMax }[e.key];
+    if (next === undefined) return;
+    e.preventDefault();
+    showAt(next);
+  });
 })();
